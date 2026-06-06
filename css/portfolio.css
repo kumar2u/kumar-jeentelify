@@ -1,0 +1,392 @@
+/* --- THEME ROOT --- */
+/* ✅ SAFE MOBILE SCROLL FIX */
+html,
+body {
+	overflow-x: hidden;
+}
+
+/* ✅ MAIN ISSUE FIX */
+.stat-badge {
+	right: 10px !important;
+	/* negative value hata diya */
+}
+
+a {
+	text-decoration: none;
+}
+
+:root {
+	--primary: #7042f8;
+	--secondary: #00d2ff;
+	--dark-bg: #030014;
+	--card-glass: rgba(255, 255, 255, 0.05);
+	--border: rgba(255, 255, 255, 0.1);
+	--accent: #ffcc00;
+
+	--dark-bg: #030014;
+	--border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+	background-color: var(--dark-bg);
+	color: #fff;
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	overflow-x: hidden;
+	cursor: default;
+
+
+}
+
+/* ee */
+
+/* ee */
+
+.gradient-text {
+	background: linear-gradient(90deg, var(--secondary), var(--accent));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+
+/* Header Styling */
+.vortex-nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding: 15px 0;
+	background: rgba(3, 0, 20, 0.8);
+	backdrop-filter: blur(20px);
+	border-bottom: 1px solid var(--border);
+	z-index: 1000;
+}
+
+.nav-logo {
+	font-size: 24px;
+	color: #fff;
+	text-decoration: none;
+	letter-spacing: 1px;
+}
+
+.nav-logo span {
+	color: var(--accent);
+}
+
+.nav-links a {
+	color: #fff;
+	text-decoration: none;
+	margin-left: 30px;
+	font-size: 13px;
+	font-weight: 600;
+	text-transform: uppercase;
+	transition: 0.3s;
+}
+
+.nav-links a:hover {
+	color: var(--secondary);
+}
+
+.nav-cta {
+	background: linear-gradient(90deg, var(--secondary), var(--accent)) !important;
+	padding: 10px 25px !important;
+	border-radius: 50px;
+	color: #000 !important;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+
+/* Hamburger */
+.menu-toggle {
+	width: 30px;
+	height: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	cursor: pointer;
+	z-index: 1001;
+}
+
+.menu-toggle span {
+	height: 3px;
+	width: 100%;
+	background: var(--secondary);
+	border-radius: 5px;
+	transition: 0.4s ease;
+}
+
+/* X Animation */
+.menu-toggle.open span:nth-child(1) {
+	transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+	opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+	transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Desktop */
+.nav-links {
+	display: flex;
+	gap: 25px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+	.nav-links {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		width: 100%;
+		height: 100vh;
+		background: rgba(0, 0, 0, 0.95);
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		transition: right 0.4s ease;
+		z-index: 1000;
+	}
+
+	.nav-links.active {
+		right: 0;
+	}
+
+	.nav-links a {
+		font-size: 1.5rem;
+		margin: 12px 0;
+		color: #fff;
+		text-decoration: none;
+		opacity: 0;
+		transform: translateY(20px);
+		transition: 0.3s;
+	}
+
+	.nav-links.active a {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	/* Stagger */
+	.nav-links.active a:nth-child(1) {
+		transition-delay: 0.1s;
+	}
+
+	.nav-links.active a:nth-child(2) {
+		transition-delay: 0.2s;
+	}
+
+	.nav-links.active a:nth-child(3) {
+		transition-delay: 0.3s;
+	}
+
+	.nav-links.active a:nth-child(4) {
+		transition-delay: 0.4s;
+	}
+
+	.nav-links.active a:nth-child(5) {
+		transition-delay: 0.5s;
+	}
+
+	.nav-links.active a:nth-child(6) {
+		transition-delay: 0.6s;
+	}
+}
+
+/* 3. Desktop par jaisa tha waisa hi rahega */
+@media (min-width: 769px) {
+	.vortex-nav .nav-cta {
+		display: flex !important;
+	}
+}
+
+/* --- MOBILE MENU BUTTON DYNAMIC FIX --- */
+@media (max-width: 768px) {
+
+	/* 1. Jab menu band ho, header se asli button ko hide rakho */
+	.vortex-nav>.container>.nav-cta {
+		display: none !important;
+	}
+
+	/* 2. Jab button menu (.nav-menu) ke ANDAR jaye JS ke through */
+	#nav-menu .nav-cta {
+		display: flex !important;
+		/* Zabardasti dikhao */
+		margin-top: 30px;
+		/* Links se thoda gap */
+		width: auto;
+		/* Mobile par bada button */
+		justify-content: center;
+		order: 10;
+		/* Sabse niche dikhane ke liye */
+		padding: 15px;
+		font-size: 16px;
+		opacity: 1 !important;
+		visibility: visible !important;
+		z-index: 2000;
+		background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+		/* Aapka gradient */
+		color: #000;
+		/* Text color */
+		border-radius: 50px;
+	}
+}
+
+/* 3. Desktop par normal position (Koi change nahi) */
+@media (min-width: 769px) {
+	.vortex-nav .nav-cta {
+		display: flex !important;
+	}
+}
+
+
+
+/* Header Styling End*
+
+        /* 4. Grid System (Blink Fix) */
+        #macy-container {
+            width: 100%;
+            padding: 20px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: block;
+            /* Initial load par smooth entry ke liye */
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        /* Jab code ready ho jaye tabhi dikhe */
+        #macy-container.is-ready {
+            opacity: 1;
+        }
+
+        .grid-item {
+            margin-bottom: 25px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #0f0f0f; 
+            transform: translateY(30px);
+            opacity: 0;
+            transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.6s ease;
+            will-change: transform, opacity;
+        }
+
+        .grid-item.revealed {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* 5. Hover Effects */
+        .img-link { display: block; line-height: 0; position: relative; text-decoration: none; }
+        .img-link img { width: 100%; height: auto; display: block; transition: transform 0.6s ease; }
+        .img-link:hover img { transform: scale(1.04); }
+        .img-link::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0); transition: background 0.3s ease;
+        }
+        .img-link:hover::after { background: rgba(0,0,0,0.1); }
+
+        /* 6. Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .page-banner { padding: 120px 0 40px; }
+            .display-3 { font-size: 2.5rem; }
+        }
+        @media (max-width: 576px) {
+            #macy-container { padding: 10px; }
+            .grid-item { margin-bottom: 15px; border-radius: 12px; }
+        }
+        /* Is hisse ko replace karein */
+#macy-container {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: block;
+    opacity: 0; /* Pehle invisible rahega */
+}
+
+/* Jab page load ho jaye, tab transition ke saath dikhe */
+#macy-container.is-ready {
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out; /* Transition yahan honi chahiye */
+}
+.page-banner {
+	position: relative;
+	/* Image URL check karein, niche maine ek dark high-quality image lagayi hai */
+	background: linear-gradient(rgba(3, 0, 20, 0.8), rgba(3, 0, 20, 0.8)),
+		url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1350&q=80');
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+
+	/* Header (KUMARJEE) ke liye gap */
+	padding-top: 100px;
+	padding-bottom: 40px;
+
+	min-height: 250px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+.banner-content {
+	position: relative;
+	z-index: 2;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.page-banner h1 {
+	font-size: clamp(2.5rem, 8vw, 4rem);
+	/* Responsive font size */
+	font-weight: 900;
+	color: #fff;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	/* Ek halka sa text shadow professional look ke liye */
+	text-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Breadcrumb Styling */
+.breadcrumb {
+	display: inline-flex;
+	/* Sirf utni jagah lega jitni zaroorat hai */
+	background: rgba(255, 255, 255, 0.05);
+	/* Glass effect */
+	backdrop-filter: blur(10px);
+	padding: 12px 30px;
+	border-radius: 50px;
+	list-style: none;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.breadcrumb-item a {
+	color: #aaa;
+	text-decoration: none;
+	font-weight: 500;
+	transition: 0.3s;
+}
+
+.breadcrumb-item a:hover {
+	color: #00d2ff;
+}
+
+.breadcrumb-item.active {
+	color: #fff;
+	font-weight: 700;
+}
+
+/* Custom Blue Slash */
+.breadcrumb-item+.breadcrumb-item::before {
+	content: "/";
+	padding: 0 15px;
+	color: #00d2ff;
+	font-weight: 900;
+}
+
